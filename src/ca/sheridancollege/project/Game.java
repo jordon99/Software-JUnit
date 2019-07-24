@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * child of this class and instantiate the methods given.
  * @author dancye, 2018
  */
-public abstract class Game 
+public class Game 
 {
-    private final String gameName;//the title of the game
+    private final String UNO;//the title of the game
     private ArrayList <Player> players;// the players of the game
     
     public Game(String givenName)
     {
-        gameName = givenName;
+        UNO = givenName;
         players = new ArrayList();
     }
 
@@ -28,7 +28,7 @@ public abstract class Game
      */
     public String getGameName() 
     {
-        return gameName;
+        return UNO;
     }
     
      /**
@@ -51,13 +51,26 @@ public abstract class Game
      * Play the game. This might be one method or many method calls depending
      * on your game.
      */
-    public abstract void play();
+    public static void play(){
+        
+    }
     
     /**
      * When the game is over, use this method to declare and display a winning
      * player.
      */
-    public abstract void declareWinner();
+    public static void declareWinner(){
+        
+    }
+    public static void discardPile(){
+        
+    }
+    public static void getCardFromPile(){
+        
+    }
+    public static void createAction(){
+        
+    }
 
    
     

@@ -7,6 +7,7 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * A concrete class that represents any grouping of cards for a Game.
@@ -16,30 +17,29 @@ import java.util.Collections;
  */
 public class GroupOfCards 
 {
-   
+    private int handSize = 7;
+   public Card[] cards = new Card[handSize];
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
+    //private ArrayList <Card> cards;
     private int size;//the size of the grouping
     
     public GroupOfCards(int givenSize)
     {
         size = givenSize;
     }
-    
-    /**
-     * A method that will get the group of cards as an ArrayList
-     * @return the group of cards.
-     */
-    public ArrayList<Card> showCards()
-    {
-        return cards;
-    }
-    
-    public void shuffle()
-    {
-        Collections.shuffle(cards);
-    }
-
+    public Card[] ShuffleCards(Card[] array){
+		Random rgen = new Random();  // Random number generator			
+ 
+		for (int i=0; i<array.length; i++) {
+		    int randomPosition = rgen.nextInt(array.length);
+		    Card temp = array[i];
+		    array[i] = array[randomPosition];
+		    array[randomPosition] = temp;
+		}
+ 
+		return array;
+	} 
+   
     /**
      * @return the size of the group of cards
      */
@@ -52,6 +52,21 @@ public class GroupOfCards
      */
     public void setSize(int givenSize) {
         size = givenSize;
-    }
+    }	
+        /**
+         * Add comments during class to explain what this method does.
+         */
+        public void generateHand()
+        {
+                int countCards = 0;
+		for(Card.Colour s: Card.Colour.values())
+                {
+                    for(Card.Value v: Card.Value.values())
+                    {
+                        cards[countCards] = (new Card(s,v));
+                        countCards++;
+                    }
+                }//end outter for
+        }//end method
     
 }//end class

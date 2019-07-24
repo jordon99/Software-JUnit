@@ -4,6 +4,7 @@
  * Add your name as a modifier and the date!
  */
 package ca.sheridancollege.project;
+import java.util.Random;
 
 /**
  * A class to be used as the base Card class for the project. Must be general
@@ -11,8 +12,25 @@ package ca.sheridancollege.project;
  * should remember to add themselves as a modifier.
  * @author dancye, 2018
  */
-public abstract class Card 
+public class Card 
 {
+   public enum Colour {RED, YELLOW, GREEN, BLUE};
+   public enum Value{ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, WILDCARD, DRAWFOUR, DRAWTWO, SKIP, REVERSE};
+   private final Colour colour;
+   private final Value value;
+   
+   public Card(Colour c, Value v){
+       colour = c;
+       value = v;
+   }
+   
+   public Value getValue(){
+       return this.value;
+   }
+   public Colour getColour(){
+       return this.colour;
+   }
+   
     //default modifier for child classes
     
     /**
@@ -20,7 +38,6 @@ public abstract class Card
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
     
-    @Override
-    public abstract String toString();
+ 
     
 }
