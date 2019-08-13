@@ -4,7 +4,7 @@
  * Add your name as a modifier and the date!
  */
 package ca.sheridancollege.project;
-import java.util.Random;
+//import java.util.Random;
 
 /**
  * A class to be used as the base Card class for the project. Must be general
@@ -29,6 +29,10 @@ public class Card
    }
    public Colour getColour(){
        return this.colour;
+   }
+   @Override
+   public String toString(){
+       return "[" + getColour() + "," + getValue() + "]";
    }
    
     //default modifier for child classes
